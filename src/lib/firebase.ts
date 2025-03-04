@@ -5,13 +5,12 @@ import { getStorage } from 'firebase/storage'
 import { writable } from 'svelte/store'
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBf2-fLBrlGLsAsIDLaQC_RU8Khbyxdj0o",
-  authDomain: "biosphere-4ac71.firebaseapp.com",
-  projectId: "biosphere-4ac71",
-  storageBucket: "biosphere-4ac71.firebasestorage.app",
-  messagingSenderId: "563193112447",
-  appId: "1:563193112447:web:74286fad4de2614dc79c4a",
-  measurementId: "G-619XTPF52H"
+  apiKey: "AIzaSyC-oThgBYoCUNOeov8wfpu8xJFZzzrIhWo",
+  authDomain: "igcse-8c169.firebaseapp.com",
+  projectId: "igcse-8c169",
+  storageBucket: "igcse-8c169.firebasestorage.app",
+  messagingSenderId: "382392702076",
+  appId: "1:382392702076:web:96d1973042402f1a5ae5f9"
 }
 
 const app = initializeApp(firebaseConfig)
