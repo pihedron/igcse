@@ -28,7 +28,6 @@
   "dependencies": {
     "@shentohendriks/svelte-smoothscroll": "^0.0.8",
     "@sveltejs/adapter-cloudflare": "^5.0.3",
-    "firebase": "^11.4.0",
-    "locomotive-scroll": "^4.1.4"
+    "firebase": "^11.4.0"
   }
 }
