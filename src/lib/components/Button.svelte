@@ -1,15 +1,15 @@
 <script lang="ts">
   export let disabled = false
   export let type: 'button' | 'submit' | 'reset' | null | undefined = 'button'
-  export let click: (ev: MouseEvent) => void
+  export let click: (e: MouseEvent) => void
 
   let pressed = false
 
-  function mousedown(ev: MouseEvent) {
+  function mousedown(e: MouseEvent) {
     pressed = true
   }
 
-  function mouseup(ev: MouseEvent) {
+  function mouseup(e: MouseEvent) {
     pressed = false
   }
 </script>
@@ -54,5 +54,11 @@
 
   button.pressed {
     transform: scale(0.9);
+  }
+
+  .label {
+    display: flex;
+    align-items: center;
+    gap: 4px;
   }
 </style>
