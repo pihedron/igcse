@@ -34,9 +34,9 @@
 </script>
 
 <svelte:head>
-  <meta name="og:title" content="Z Cortex" />
-  <meta name="og:description" content="Take the ultimate IQ test!" />
-  <meta name="og:url" content="https://zcortex.pages.dev" />
+  <meta name="og:title" content="IGCSE Pages" />
+  <meta name="og:description" content="Be an academic weapon!" />
+  <meta name="og:url" content="https://igcse.pages.dev" />
   <title>IGCSE Pages</title>
 </svelte:head>
 
