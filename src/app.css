@@ -193,10 +193,6 @@ section > div {
   width: 100%;
 }
 
-path {
-  fill: var(--color);
-}
-
 .img {
   font-size: 0;
   border-radius: 8px;
