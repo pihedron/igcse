@@ -203,7 +203,7 @@
     flex-direction: column;
     align-items: center;
     margin: 0 auto;
-    padding: 196px 32px 32px;
+    padding: clamp(64px, 20vw, 196px) 32px 32px;
     overflow: auto;
   }
 
@@ -256,7 +256,7 @@
     margin: 0;
     padding: 64px;
     text-align: center;
-    font-size: 128px;
+    font-size: clamp(64px, 15vw, 128px);
   }
 
   #about {
@@ -327,6 +327,16 @@
 
     100% {
       transform: scale(0.9);
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    .parallax {
+      padding: 0;
+    }
+
+    .parallax h1 {
+      padding: 32px 0;
     }
   }
 </style>
