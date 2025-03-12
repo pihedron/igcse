@@ -5,6 +5,13 @@ export type Exam = {
   img: string,
 }
 
+export type Course = {
+  code: string,
+  title: string,
+  info: string,
+  icon: string,
+}
+
 export const exams: Exam[] = [
   {
     path: 'cie',
@@ -22,6 +29,21 @@ export const exams: Exam[] = [
     path: 'nzqa',
     title: 'New Zealand Qualifications Authority',
     info: 'Prepare for NCEA Level 1 to 3 and Scholarship.',
-    img: 'https://wun.ac.uk/wp-content/uploads/university_auckland.jpg',
+    img: 'https://www.ucol.ac.nz/NewsImages/UCOL%20Changes.jpg',
+  },
+]
+
+export const cie: Course[] = [
+  {
+    code: '0580',
+    title: 'IGCSE Mathematics',
+    info: 'Build mathematical intuition with our expertly crafted notes.',
+    icon: 'calculate',
+  },
+  {
+    code: '0478',
+    title: 'IGCSE Computer Science',
+    info: 'Try out the interactive pseudocode runner in your browser!',
+    icon: 'terminal',
   },
 ]

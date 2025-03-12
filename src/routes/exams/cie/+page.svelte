@@ -1,7 +1,7 @@
 <script lang="ts">
   import { onMount } from 'svelte'
   import { fly, scale } from 'svelte/transition'
-  import { exams } from '$lib'
+  import { cie } from '$lib'
   import { page } from '$app/state'
   import Icon from '$lib/components/Icon.svelte'
 
@@ -12,22 +12,21 @@
 
 {#if ready}
   <div class="auto" transition:fly={{ y: -32, duration: 750 }}>
-    <h1 class="center">Exams</h1>
+    <h1 class="center">CIE</h1>
     <hr transition:scale={{ delay: 250, duration: 750 }} />
     <div class="grid">
-      {#each exams as exam}
-        <a href={page.url.pathname + '/' + exam.path} class="card">
+      {#each cie as course}
+        <a href={page.url.pathname + '/' + course.code} class="card">
           <div class="thumb">
-            <img src={exam.img} alt="Thumbnail" />
-            <div class="icon">
-              <Icon fontSize={64}>school</Icon>
+            <div class="icon center">
+              <Icon fontSize={64}>{course.icon}</Icon>
             </div>
           </div>
           <div class="text">
             <div class="title">
-              <span>{exam.title}</span>
+              <span>{course.title}</span>
             </div>
-            <div class="info">{exam.info}</div>
+            <div class="info">{course.info}</div>
           </div>
         </a>
       {/each}
@@ -38,36 +37,32 @@
 <style>
   .grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     column-gap: 32px;
     row-gap: 32px;
     margin: 32px 0;
   }
 
   .card {
-    height: 400px;
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--color);
     border-radius: 8px;
-    box-shadow: 0px 2px 4px 0 color-mix(in oklab, var(--bg), black 50%);
-    overflow: hidden;
     cursor: pointer;
+    transition: all 250ms;
   }
 
   .thumb {
     position: relative;
-    width: 100%;
-    height: 256px;
-    overflow: hidden;
-  }
-
-  .thumb img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: all 250ms;
+    width: 128px;
+    height: 128px;
+    padding: 16px;
   }
 
   .text {
-    padding: 16px;
+    width: 0;
+    flex-grow: 1;
+    padding: 16px 16px 16px 0;
     text-overflow: ellipsis;
   }
 
@@ -81,31 +76,19 @@
   }
 
   .icon {
-    position: absolute;
-    color: white;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    opacity: 0;
+    height: 100%;
     transition: all 250ms;
   }
 
-  .card:hover .thumb img {
-    filter: brightness(50%);
-    transform: scale(1.1);
+  .card:hover {
+    border-color: var(--accent);
   }
 
   .card:hover .thumb .icon {
-    opacity: 1;
+    transform: scale(1.1);
   }
 
-  @media screen and (max-width: 1024px) {
-    .grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media screen and (max-width: 640px) {
+  @media screen and (max-width: 800px) {
     .grid {
       grid-template-columns: repeat(1, 1fr);
     }

@@ -144,7 +144,7 @@ h3 {
   font-size: var(--subheading);
 }
 
-p a {
+:is(p, li) a {
   position: relative;
   color: transparent;
   font-weight: bold;
@@ -158,12 +158,12 @@ p a {
   transition: background-size 250ms ease-out;
 }
 
-p a:hover, p a:focus {
+:is(p, li) a:hover, :is(p, li) a:focus {
   background-position: 0;
   background-size: 100%;
 }
 
-p a:after {
+:is(p, li) a:after {
   content: "";
   position: absolute;
   z-index: -1;
@@ -176,10 +176,14 @@ p a:after {
   transition: width 250ms ease-out;
 }
 
-p a:hover:after, p a:focus {
+:is(p, li) a:hover:after, :is(p, li) a:focus {
   left: 0;
   right: auto;
   width: 100%;
+}
+
+ul {
+  list-style-type: disc;
 }
 
 hr {
@@ -188,6 +192,7 @@ hr {
 
 em {
   color: var(--accent);
+  font-style: normal;
 }
 
 section {
@@ -223,6 +228,11 @@ section > div {
   padding: 0 32px;
 }
 
+.doc {
+  width: 800px;
+  overflow: auto;
+}
+
 .full {
   min-height: calc(100vh - var(--nav));
 }
@@ -250,6 +260,14 @@ section > div {
   width: 100%;
   border-radius: 8px;
   overflow: hidden;
+}
+
+p .katex {
+  margin: 0.2em;
+}
+
+p .mord.mathnormal {
+  margin: 0 !important;
 }
 
 #banner {
