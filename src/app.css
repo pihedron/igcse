@@ -49,6 +49,14 @@ button {
   cursor: pointer;
 }
 
+input {
+  padding: 12px 16px;
+  color: var(--color);
+  background-color: color-mix(in oklab, var(--color), transparent 90%);
+  border: 0;
+  border-radius: 4px;
+}
+
 header {
   position: fixed;
   top: 0;
@@ -268,6 +276,10 @@ p .katex {
 
 p .mord.mathnormal {
   margin: 0 !important;
+}
+
+mn {
+  user-select: none;
 }
 
 #banner {

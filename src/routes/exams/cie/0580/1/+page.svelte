@@ -1,6 +1,14 @@
-<script>
+<script lang="ts">
+  import FactorTree from '$lib/components/FactorTree.svelte'
   import Icon from '$lib/components/Icon.svelte'
   import { math } from '$lib/katex'
+
+  let num = 60
+  let primes: number[] = []
+  let count: number
+  let value = '60'
+
+  $: value, num = (/[0-9]+/g).test(value) && parseInt(value) >= 1 && parseInt(value) <= 1e6 ? parseInt(value) : num
 </script>
 
 <div class="cover center">
@@ -84,13 +92,27 @@
     )}. Likewise, cube numbers are integers raised to the power of {@html math(`3`)}.
   </p>
   <h3>Common Factors</h3>
-  <p>
-    Factors that are shared by multiple numbers are called common factors.
-  </p>
+  <p>Factors that are shared by multiple numbers are called common factors.</p>
   <ul>
     <li>{@html math(`42`)} and {@html math(`69`)} share {@html math(`3`)} as a factor</li>
-    <li>{@html math(`18`)} and {@html math(`30`)} have the common factors {@html math(`2, 3, 6`)}</li>
+    <li>
+      {@html math(`18`)} and {@html math(`30`)} have {@html math(`2, 3, 6`)} as common factors
+    </li>
   </ul>
+  <p>
+    The best way to find common factors is to use Pihedron's Prime Factor Table. By breaking down a
+    number into a tree, we can not only solve for its prime factors but also multiply different
+    combinations of these prime factors to obtain the full set of factors.
+  </p>
+  <p>Try changing the number in the textbox!</p>
+  <input bind:value={value} />
+  <p>
+    The right column contains all the prime factors. {@html math(`${num}`)} has a total of
+    {@html math(`${count}`)} factors.
+  </p>
+  {#key num}
+    <FactorTree bind:num bind:primes bind:count></FactorTree>
+  {/key}
 </div>
 
 <style>
