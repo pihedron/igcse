@@ -1,5 +1,6 @@
 <script lang="ts">
   import FactorTree from '$lib/components/FactorTree.svelte'
+  import HighestCommonFactor from '$lib/components/HighestCommonFactor.svelte'
   import Icon from '$lib/components/Icon.svelte'
   import { math } from '$lib/katex'
 
@@ -8,7 +9,13 @@
   let count: number
   let value = '60'
 
-  $: value, num = (/[0-9]+/g).test(value) && parseInt(value) >= 1 && parseInt(value) <= 1e6 ? parseInt(value) : num
+  let a = 36
+
+  $: value,
+    (num =
+      /[0-9]+/g.test(value) && parseInt(value) >= 1 && parseInt(value) <= 1e6
+        ? parseInt(value)
+        : num)
 </script>
 
 <div class="cover center">
@@ -105,14 +112,43 @@
     combinations of these prime factors to obtain the full set of factors.
   </p>
   <p>Try changing the number in the textbox!</p>
-  <input bind:value={value} />
+  <input bind:value />
   <p>
     The right column contains all the prime factors. {@html math(`${num}`)} has a total of
-    {@html math(`${count}`)} factors.
+    {@html math(`${count}`)} factors which can be obtained by multiplying every combination of prime
+    factors.
   </p>
   {#key num}
     <FactorTree bind:num bind:primes bind:count></FactorTree>
   {/key}
+  <p>
+    The highest common factor (HCF) or greatest common denominator (GCD) of multiple numbers can be
+    found by multiplying all their common prime factors together.
+  </p>
+  {#key num}
+    <HighestCommonFactor {a} b={num}></HighestCommonFactor>
+  {/key}
+  <h3>Common Multiples</h3>
+  <p>
+    Natural numbers have an infinite number of multiples. A multiple of {@html math('N')} is a natural
+    number in the form {@html math('M @times N')} where {@html math('M')} is another natural number.
+    We often see multiples in the form of times tables.
+  </p>
+  <p>
+    Most of the time, we are only concerned with the lowest common multiple (LCM) of multiple
+    numbers. THe LCM of:
+  </p>
+  <ul>
+    <li>{@html math('2')} and {@html math('3')} is {@html math('6')}</li>
+    <li>{@html math('6')} and {@html math('15')} is {@html math('30')}</li>
+  </ul>
+  <p>
+    Note that the LCM of 2 numbers {@html math('A')} and {@html math('B')} is not always
+    {@html math('A @times B')}. This is because the LCM of {@html math('A')} and {@html math('B')}
+    is actually {@html math('A @times B @div C')} where {@html math('C')} is the HCF of
+    {@html math('A')} and {@html math('B')}. The LCM can also be found by multiplying all the prime
+    factors that are not common together.
+  </p>
 </div>
 
 <style>
