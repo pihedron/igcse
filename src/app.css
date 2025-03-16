@@ -282,6 +282,10 @@ mn {
   user-select: none;
 }
 
+.katex-display {
+  font-size: 24px;
+}
+
 #banner {
   display: flex;
   flex-direction: column;

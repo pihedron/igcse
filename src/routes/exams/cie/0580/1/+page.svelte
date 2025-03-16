@@ -2,6 +2,7 @@
   import FactorTree from '$lib/components/FactorTree.svelte'
   import HighestCommonFactor from '$lib/components/HighestCommonFactor.svelte'
   import Icon from '$lib/components/Icon.svelte'
+  import Pihedron from '$lib/components/Pihedron.svelte'
   import { math } from '$lib/katex'
 
   let num = 60
@@ -23,7 +24,7 @@
 </div>
 <div class="auto doc">
   <h1>Number</h1>
-  <h2>Types of number</h2>
+  <h2>Types of Numbers</h2>
   <p>
     Numbers can be grouped into different categories based on their properties. This helps us create
     definitions and rules for how different types of numbers behave. For example, we can define the <em
@@ -149,6 +150,93 @@
     {@html math('A')} and {@html math('B')}. The LCM can also be found by multiplying all the prime
     factors that are not common together.
   </p>
+  <h2>Sets</h2>
+  <p>
+    Set theory has a lot of overlap with probability and
+    <a href="https://igcsekit.vercel.app/igcse/computer_science/boolean_logic" target="_blank">
+      boolean logic
+    </a>. You are expected to learn set notation to describe operations on sets.
+  </p>
+  <Pihedron>
+    But what even <i>is</i> a set?
+  </Pihedron>
+  <p>
+    A set is a collection of distinct items of the same type. The <em>distinct</em> trait means that
+    sets do not contain any duplicates.
+  </p>
+  <p>
+    Before we dive into the fun stuff, it's important to know how we represent different set
+    operations.
+  </p>
+  <ul>
+    <li>{@html math('@text{n}(A)')} represents the number of elements in set {@html math('A')}</li>
+    <li>{@html math('x @in A')} means {@html math('x')} is an element of set {@html math('A')}</li>
+    <li>
+      {@html math('x @notin A')} means {@html math('x')} is not an element of set {@html math('A')}
+    </li>
+    <li>{@html math("A'")} is the <em>complement</em> of set {@html math('A')}</li>
+    <li>{@html math('@varnothing')} is the empty set</li>
+    <li>{@html math('@mathscr{E}')} is the universal set</li>
+    <li>{@html math('A @subseteq B')} means {@html math('A')} is a subset of {@html math('B')}</li>
+    <li>
+      {@html math('A @nsubseteq B')} means {@html math('A')} is not a subset of {@html math('B')}
+    </li>
+    <li>
+      {@html math('A @cup B')} is the <em>union</em> of sets {@html math('A')} and {@html math('B')}
+    </li>
+    <li>
+      {@html math('A @cap B')} is the <em>intersection</em> of sets {@html math('A')} and
+      {@html math('B')}
+    </li>
+  </ul>
+  <h3>Set Operations</h3>
+  <p>There are 3 fundamental set operations.</p>
+  <ul>
+    <li>
+      {@html math("A'")} is the set that contains all the elements in {@html math('@mathscr{E}')} except
+      those in set {@html math('A')}
+      <ul>
+        <li>acts like its opposite</li>
+        <li>does not share any common elements with the original set</li>
+        <li>{@html math("A @cap A' = @varnothing")}</li>
+      </ul>
+    </li>
+    <li>
+      {@html math('A @cup B')} is the set that includes all the elements present in sets
+      {@html math('A')} and {@html math('B')}
+      <ul>
+        <li>same as joining sets together to form a new set</li>
+        <li>always the same size if not bigger than the individual sets</li>
+        <li>
+          {@html math('@text{n}(A @cup B) @ge @text{n}(A)')} and {@html math(
+            '@text{n}(A @cup B) @ge @text{n}(B)'
+          )}
+        </li>
+        <li>always the same size if not smaller than the sum of the sizes of each set</li>
+        <li>{@html math('@text{n}(A @cup B) @le @text{n}(A) + @text{n}(B)')}</li>
+      </ul>
+    </li>
+    <li>
+      {@html math('A @cap B')} is the set that only contains the elements present in <em>both</em>
+      sets {@html math('A')} and {@html math('B')}
+      <ul>
+        <li>always the same size if not smaller than the individual sets</li>
+        <li>
+          {@html math('@text{n}(A @cup B) @le @text{n}(A)')} and {@html math(
+            '@text{n}(A @cup B) @le @text{n}(B)'
+          )}
+        </li>
+      </ul>
+    </li>
+  </ul>
+  <h3>Set Formulas</h3>
+  <p>
+    Pihedron's identity tells us that the sum of the sizes of each set equals the size of their
+    union plus their intersection.
+  </p>
+  <div class="katex-display">
+    {@html math('@text{n}(A) + @text{n}(B) = @text{n}(A @cup B) + @text{n}(A @cap B)')}
+  </div>
 </div>
 
 <style>
