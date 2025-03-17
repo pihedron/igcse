@@ -237,6 +237,10 @@
   <div class="katex-display">
     {@html math('@text{n}(A) + @text{n}(B) = @text{n}(A @cup B) + @text{n}(A @cap B)')}
   </div>
+  <p>The same idea can be applied to HCF and LCM.</p>
+  <div class="katex-display">
+    {@html math('A @times B = @text{LCM}(A, B) @times @text{HCF}(A, B)')}
+  </div>
 </div>
 
 <style>
