@@ -147,8 +147,8 @@
     Note that the LCM of 2 numbers {@html math('A')} and {@html math('B')} is not always
     {@html math('A @times B')}. This is because the LCM of {@html math('A')} and {@html math('B')}
     is actually {@html math('A @times B @div C')} where {@html math('C')} is the HCF of
-    {@html math('A')} and {@html math('B')}. The LCM can also be found by multiplying all the prime
-    factors that are not common together.
+    {@html math('A')} and {@html math('B')}. The LCM can be thought of as the union of the prime
+    factors of {@html math('A')} and {@html math('B')}.
   </p>
   <h2>Sets</h2>
   <p>
@@ -222,9 +222,8 @@
       <ul>
         <li>always the same size if not smaller than the individual sets</li>
         <li>
-          {@html math('@text{n}(A @cup B) @le @text{n}(A)')} and {@html math(
-            '@text{n}(A @cup B) @le @text{n}(B)'
-          )}
+          {@html math('@text{n}(A @cup B) @le @text{n}(A)')} and
+          {@html math('@text{n}(A @cup B) @le @text{n}(B)')}
         </li>
       </ul>
     </li>
@@ -232,7 +231,8 @@
   <h3>Set Formulas</h3>
   <p>
     Pihedron's identity tells us that the sum of the sizes of each set equals the size of their
-    union plus their intersection.
+    union plus their intersection. This is because when you add the sizes of both sets, you are
+    adding the size of their intersection twice.
   </p>
   <div class="katex-display">
     {@html math('@text{n}(A) + @text{n}(B) = @text{n}(A @cup B) + @text{n}(A @cap B)')}
