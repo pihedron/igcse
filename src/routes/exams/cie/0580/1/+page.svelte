@@ -1,4 +1,5 @@
 <script lang="ts">
+  import Example from '$lib/components/Example.svelte'
   import FactorTree from '$lib/components/FactorTree.svelte'
   import HighestCommonFactor from '$lib/components/HighestCommonFactor.svelte'
   import Icon from '$lib/components/Icon.svelte'
@@ -150,6 +151,47 @@
     {@html math('A')} and {@html math('B')}. The LCM can be thought of as the union of the prime
     factors of {@html math('A')} and {@html math('B')}.
   </p>
+  <Pihedron>How do we find all the pairs of numbers that have a certain HCF and LCM?</Pihedron>
+  <p>
+    Sometimes it's possible to use <a href="#identity">Pihedron's Identity</a> to solve problem's involving
+    HCF and LCM. The following example has strong connections with the identity.
+  </p>
+  <Example code="4024" year={2021} season="Winter" paper={1} variant={2} title="The Missing Pair">
+    <p>
+      Two positive integers are each greater than 25.<br />
+      Their lowest common multiple (LCM) is 216.<br />
+      Their highest common factor (HCF) is 18.
+    </p>
+    <p>Find the two integers.</p>
+    <hr>
+    <div class="katex-display">
+      {@html math('@text{LCM}(A, B) = 216 @newline @text{HCF}(A, B) = 18')}
+    </div>
+    <p>
+      We can use Pihedron's Theorem to turn this into a counting problem. First, we divide the LCM
+      by the HCF.
+    </p>
+    <div class="katex-display">
+      {@html math('@frac{216}{18} = 12')}
+    </div>
+    <p>Next, we count the number of distinct prime factors of {@html math('12')}.</p>
+    <div class="katex-display">
+      {@html math('12 = 2^2 @times 3^1 @newline @omega(12) = 2')}
+    </div>
+    <p>
+      {@html math('12')} has {@html math('2')} distinct prime factors. This means there are only
+      {@html math('2^{2-1}=2')} possible pairs to consider. The first pair doesn't work because
+      {@html math('A, B > 25')} is not satisfied.
+    </p>
+    <div class="katex-display">
+      {@html math('A = 18 @newline B = 18 @times 2^2 @times 3^1')}
+    </div>
+    <p>However, the second pair does.</p>
+    <div class="katex-display">
+      {@html math('A = 18 @times 2^2 @newline B = 18 @times 3^1')}
+    </div>
+    <p>Hence, we get {@html math('72')} and {@html math('54')} as our answers.</p>
+  </Example>
   <h2>Sets</h2>
   <p>
     Set theory has a lot of overlap with probability and
@@ -229,8 +271,8 @@
     </li>
   </ul>
   <h3>Set Formulas</h3>
-  <p>
-    Pihedron's identity tells us that the sum of the sizes of each set equals the size of their
+  <p id="identity">
+    Pihedron's Identity tells us that the sum of the sizes of each set equals the size of their
     union plus their intersection. This is because when you add the sizes of both sets, you are
     adding the size of their intersection twice.
   </p>
