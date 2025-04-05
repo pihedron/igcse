@@ -151,6 +151,44 @@
     {@html math('A')} and {@html math('B')}. The LCM can be thought of as the union of the prime
     factors of {@html math('A')} and {@html math('B')}.
   </p>
+  <Example code="4MA1" year={2022} season="Jan" paper={1} variant="HR" title="Prime Factors Among Us">
+    <div class="katex-display">
+      {@html math('A = 5^2 @times 7^4 @times 11^p @newline B = 5^m @times 7^{n- 5} @times 11')}
+    </div>
+    <p>Where {@html math('m')}, {@html math('n')}, and {@html math('p')} are integers such that:</p>
+    <div class="katex-display">
+      {@html math('m > 2 @newline n > 10 @newline p > 1')}
+    </div>
+    <p>
+      Fortunately, this question has given us the prime factors of both numbers. This means finding
+      the highest common factor is as easy as plugging this question into a formula.
+    </p>
+    <div class="katex-display">
+      {@html math('5^{@min(2, m)} @times 7^{@min(4, n - 5)} @times 11^{@min(p, 1)}')}
+    </div>
+    <p>
+      The highest common factor is found by raising each prime to its <em>lowest</em> exponent while
+      the lowest common multiple is found by raising each prime to its <em>highest</em> exponent.
+    </p>
+    <p>
+      Since we are concerned with the minimum exponent, we want to know the minimum value of these
+      variables to see if they will affect the highest common factor.
+    </p>
+    <div class="katex-display">
+      {@html math('m_{min} = 3 @newline n_{min} = 11 @newline p_{min} = 2')}
+    </div>
+    <p>
+      When we substitute these lower bounds into the formula, it's obvious that the variables have no effect on
+      the highest common factor.
+    </p>
+    <div class="katex-display">
+      {@html math('5^{@min(2, 3)} @times 7^{@min(4, 6)} @times 11^{@min(2, 1)}')}
+    </div>
+    <p>The final answer is straightforward.</p>
+    <div class="katex-display">
+      {@html math('5^2 @times 7^4 @times 11^1')}
+    </div>
+  </Example>
   <Pihedron>How do we find all the pairs of numbers that have a certain HCF and LCM?</Pihedron>
   <p>
     Sometimes it's possible to use <a href="#identity">Pihedron's Identity</a> to solve problem's involving
@@ -163,7 +201,7 @@
       Their highest common factor (HCF) is 18.
     </p>
     <p>Find the two integers.</p>
-    <hr>
+    <hr />
     <div class="katex-display">
       {@html math('@text{LCM}(A, B) = 216 @newline @text{HCF}(A, B) = 18')}
     </div>
