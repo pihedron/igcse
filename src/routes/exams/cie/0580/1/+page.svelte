@@ -4,6 +4,7 @@
   import HighestCommonFactor from '$lib/components/HighestCommonFactor.svelte'
   import Icon from '$lib/components/Icon.svelte'
   import Pihedron from '$lib/components/Pihedron.svelte'
+  import Venn from '$lib/components/Venn.svelte'
   import { math } from '$lib/katex'
 
   let num = 60
@@ -151,7 +152,14 @@
     {@html math('A')} and {@html math('B')}. The LCM can be thought of as the union of the prime
     factors of {@html math('A')} and {@html math('B')}.
   </p>
-  <Example code="4MA1" year={2022} season="Jan" paper={1} variant="HR" title="Prime Factors Among Us">
+  <Example
+    code="4MA1"
+    year={2022}
+    season="Jan"
+    paper={1}
+    variant="HR"
+    title="Prime Factors Among Us"
+  >
     <div class="katex-display">
       {@html math('A = 5^2 @times 7^4 @times 11^p @newline B = 5^m @times 7^{n- 5} @times 11')}
     </div>
@@ -178,8 +186,8 @@
       {@html math('m_{min} = 3 @newline n_{min} = 11 @newline p_{min} = 2')}
     </div>
     <p>
-      When we substitute these lower bounds into the formula, it's obvious that the variables have no effect on
-      the highest common factor.
+      When we substitute these lower bounds into the formula, it's obvious that the variables have
+      no effect on the highest common factor.
     </p>
     <div class="katex-display">
       {@html math('5^{@min(2, 3)} @times 7^{@min(4, 6)} @times 11^{@min(2, 1)}')}
@@ -310,9 +318,9 @@
   </ul>
   <h3>Set Formulas</h3>
   <p id="identity">
-    Pihedron's Identity tells us that the sum of the sizes of each set equals the size of their
-    union plus their intersection. This is because when you add the sizes of both sets, you are
-    adding the size of their intersection twice.
+    The sum of the sizes of each set equals the size of their union plus their intersection. This is
+    because when you add the sizes of both sets, you are adding the size of their intersection
+    twice.
   </p>
   <div class="katex-display">
     {@html math('@text{n}(A) + @text{n}(B) = @text{n}(A @cup B) + @text{n}(A @cap B)')}
@@ -321,6 +329,16 @@
   <div class="katex-display">
     {@html math('A @times B = @text{LCM}(A, B) @times @text{HCF}(A, B)')}
   </div>
+  <h3>Venn Diagrams</h3>
+  <p>
+    A Venn diagram is a visual representation of a group of sets. The rectangle represents the
+    universal set while each circle represents a set.
+  </p>
+  <p>
+    Each enclosed area of a Venn diagram is an <em>intersection</em> of sets or their
+    <em>complements</em>.
+  </p>
+  <Venn></Venn>
 </div>
 
 <style>
