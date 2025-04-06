@@ -4,7 +4,7 @@
   import HighestCommonFactor from '$lib/components/HighestCommonFactor.svelte'
   import Icon from '$lib/components/Icon.svelte'
   import Pihedron from '$lib/components/Pihedron.svelte'
-  // import Venn from '$lib/components/Venn.svelte'
+  import Venn from '$lib/components/Venn.svelte'
   import { math } from '$lib/katex'
 
   let num = 60
@@ -338,7 +338,7 @@
     Each enclosed area of a Venn diagram is an <em>intersection</em> of sets or their
     <em>complements</em>.
   </p>
-  <!-- <Venn></Venn> -->
+  <Venn></Venn>
 </div>
 
 <style>

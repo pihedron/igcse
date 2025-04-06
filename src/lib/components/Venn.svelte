@@ -7,6 +7,8 @@
 
   let latex = `(A' @cup B')'`
 
+  $: latex
+
   let forward: Record<string, string> = {
     '(': ')'
   }
@@ -55,7 +57,13 @@
 
     expression += word
 
-    return new Function('A', 'B', `return ${expression}`)
+    try {
+      return new Function('A', 'B', `return ${expression}`)
+    } catch(error) {
+      console.log('error')
+    }
+
+    return (A: boolean, B: boolean) => false
   }
 
   let f = (a: boolean, b: boolean) => {
