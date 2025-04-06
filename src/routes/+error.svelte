@@ -22,9 +22,6 @@
         <a href="https://github.com/pihedron/igcse/issues" target="_blank">open an issue</a>
         so I can fix it.
       </p>
-      <h2>Hacker Stuff</h2>
-      <p>This is for debugging.</p>
-      <code>{$page.error?.message}</code>
     </div>
   {/if}
 </section>
