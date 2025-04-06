@@ -210,7 +210,7 @@
     left: calc(100%);
     bottom: calc(100%);
     padding: 16px;
-    width: 200px;
+    width:180px;
     color: var(--bg);
     background-color: var(--color);
     border-radius: 16px 16px 16px 0;
@@ -218,6 +218,6 @@
   }
 
   input {
-    width: 128px;
+    width: 180px;
   }
 </style>

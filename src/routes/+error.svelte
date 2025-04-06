@@ -43,7 +43,7 @@
     text-align: center;
   }
 
-  :is(h1, h2) {
+  h1 {
     display: flex;
     justify-content: center;
     margin: 0;
